@@ -11,8 +11,8 @@ def main():
     c0 = np.zeros((m, n_s))
     outputs = list(Yoh.swapaxes(0, 1))
 
-    #model1.fit([Xoh, s0, c0], outputs, epochs=1, batch_size=100)
-    model1.fit([Xoh, s0, c0], outputs, epochs=50, batch_size=1000)
+    model1.fit([Xoh, s0, c0], outputs, epochs=1, batch_size=100)
+    #model1.fit([Xoh, s0, c0], outputs, epochs=50, batch_size=1000)
 
     # serialize weights to HDF5: need to install h5py
     #model1.save_weights("model1.h5")
