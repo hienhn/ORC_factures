@@ -17,13 +17,13 @@ def main():
     # serialize weights to HDF5: need to install h5py
     #model1.save_weights("model1.h5")
     # print("Saved model to disk")
-    model1.load_weights('model1.h5')
+    model1.load_weights('model.h5')
 
     # evaluate the model
     scores = model1.evaluate([Xoh,s0,c0], outputs)
     print("Score \n%s: %.2f%%" % (model1.metrics_names[1], scores[1] * 100))
 
-    EXAMPLES = ['Brioche Doree 01/03/2017 TOTAL 10€ 34 avenue Opera 75001 Paris']
+    EXAMPLES = ['Brioche Doree 01 MARCH 2017 TOTAL 10€ 34 avenue Opera 75001 Paris']
     for example in EXAMPLES:
         source = string_to_int(example, Tx, human_vocab)
         source = np.array(list(map(lambda x: to_categorical(x, num_classes=len(human_vocab)), source)))
