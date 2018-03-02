@@ -15,9 +15,9 @@ def main():
     model1.fit([Xoh, s0, c0], outputs, epochs=50, batch_size=1000)
 
     # serialize weights to HDF5: need to install h5py
-    model1.save_weights("model1.h5")
+    #model1.save_weights("model1.h5")
     # print("Saved model to disk")
-    #model1.load_weights('model.h5')
+    model1.load_weights('model1.h5')
 
     # evaluate the model
     scores = model1.evaluate([Xoh,s0,c0], outputs)
