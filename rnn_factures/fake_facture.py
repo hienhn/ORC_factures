@@ -10,7 +10,7 @@ import keras.backend as K
 import matplotlib.pyplot as plt
 
 # change this if you want it to work with another language
-LOCALES = ['en_US']
+LOCALES = ['fr_FR']
 
 FORMATS = ['short',
            'medium',
@@ -44,7 +44,7 @@ FORMATS = ['short',
            'YYYY MMM dd',
            'ddMMYYYY']
 
-fake = Faker('en_US')
+fake = Faker('fr_FR')
 # name= fake.name()
 # address = fake.address()
 # date = fake.date()
@@ -108,8 +108,8 @@ def load_dataset(m):
             if Tx < len(set(facture)):
                 Tx = len(set(facture))
             dataset.append((facture, facture_date))
-            human_vocab.update(tuple(facture))
-            machine_vocab.update(tuple(facture_date))
+            human_vocab.update(tuple(facture.lower()))
+            machine_vocab.update(tuple(facture_date.lower()))
 
     human = dict(zip(sorted(human_vocab) + ['<unk>', '<pad>'],
                      list(range(len(human_vocab) + 2))))
